@@ -4,7 +4,7 @@
 #
 Name     : perl-CGI-Compile
 Version  : 0.22
-Release  : 6
+Release  : 7
 URL      : https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/CGI-Compile-0.22.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/CGI-Compile-0.22.tar.gz
 Summary  : 'Compile .cgi scripts to a code reference like ModPerl::Registry'
