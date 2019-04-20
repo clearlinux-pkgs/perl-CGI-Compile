@@ -4,10 +4,10 @@
 #
 Name     : perl-CGI-Compile
 Version  : 0.22
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/CGI-Compile-0.22.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/CGI-Compile-0.22.tar.gz
-Summary  : 'Compile .cgi scripts to a code reference like ModPerl::Registry'
+Summary  : Compile .cgi scripts to a code reference like ModPerl::Registry
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-CGI-Compile-license = %{version}-%{release}
@@ -26,6 +26,7 @@ ModPerl::Registry
 Summary: dev components for the perl-CGI-Compile package.
 Group: Development
 Provides: perl-CGI-Compile-devel = %{version}-%{release}
+Requires: perl-CGI-Compile = %{version}-%{release}
 
 %description dev
 dev components for the perl-CGI-Compile package.
