@@ -4,13 +4,14 @@
 #
 Name     : perl-CGI-Compile
 Version  : 0.22
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/CGI-Compile-0.22.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/CGI-Compile-0.22.tar.gz
-Summary  : Compile .cgi scripts to a code reference like ModPerl::Registry
+Summary  : 'Compile .cgi scripts to a code reference like ModPerl::Registry'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-CGI-Compile-license = %{version}-%{release}
+Requires: perl-CGI-Compile-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(ExtUtils::Config)
 BuildRequires : perl(ExtUtils::Helpers)
@@ -40,14 +41,24 @@ Group: Default
 license components for the perl-CGI-Compile package.
 
 
+%package perl
+Summary: perl components for the perl-CGI-Compile package.
+Group: Default
+Requires: perl-CGI-Compile = %{version}-%{release}
+
+%description perl
+perl components for the perl-CGI-Compile package.
+
+
 %prep
 %setup -q -n CGI-Compile-0.22
+cd %{_builddir}/CGI-Compile-0.22
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -59,7 +70,7 @@ fi
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-CGI-Compile
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-CGI-Compile/LICENSE
+cp %{_builddir}/CGI-Compile-0.22/LICENSE %{buildroot}/usr/share/package-licenses/perl-CGI-Compile/273c595530cfe1fd5e375b95225b236352ecef7f
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -72,7 +83,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/CGI/Compile.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -80,4 +90,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-CGI-Compile/LICENSE
+/usr/share/package-licenses/perl-CGI-Compile/273c595530cfe1fd5e375b95225b236352ecef7f
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/CGI/Compile.pm
