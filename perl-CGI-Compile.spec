@@ -4,7 +4,7 @@
 #
 Name     : perl-CGI-Compile
 Version  : 0.25
-Release  : 23
+Release  : 24
 URL      : https://cpan.metacpan.org/authors/id/R/RK/RKITOVER/CGI-Compile-0.25.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/R/RK/RKITOVER/CGI-Compile-0.25.tar.gz
 Summary  : 'Compile .cgi scripts to a code reference like ModPerl::Registry'
@@ -94,4 +94,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/CGI/Compile.pm
+/usr/lib/perl5/*
